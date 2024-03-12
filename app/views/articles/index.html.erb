@@ -1,0 +1,10 @@
+Articles Listing Page:
+<ul>
+<% @articles.each do |article| %>
+    <li>
+        <strong>title: </strong><%= article.title %><br/>
+        <strong>author: </strong><%= article.author %><br/>
+        <strong>description: </strong><%= article.description %><br/>
+    </li>
+    <% end %> 
+</ul>
