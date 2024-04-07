@@ -1,5 +1,10 @@
+<% flash.each do |name, msg| %> 
+   <%= msg %> 
+<% end %>
 <div class="enclosure">
    title: <%= @article.title %>
    body: <%= @article.body %>
-   created_by: <%= @user.username %>
+   <% if @article.user %>
+      created_by: <%= @article.user.username  %>
+   <% end %>
 </div>

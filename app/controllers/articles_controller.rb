@@ -7,20 +7,24 @@ class ArticlesController < ApplicationController
         @article = Article.new()
     end
     def create 
-        @article = Article.new(article_prams)
-        @article.save
-        redirect_to @article
+        @article = Article.new(article_params)
+        @article.user = User.first
+        if @article.save
+            flash[:notice] = "Article was created Successfully"
+            redirect_to @article
+        else 
+            render 'new'
+        end
     end
     def show
         @article = Article.find(params[:id])
-        @user = User.find(@article.user_id)
     end
     def edit
         @article = Article.find(params[:id])
     end
     def update
         @article = Article.find(params[:id])
-        @article.update(article_prams)
+        @article.update(article_params)
         redirect_to @article
     end
     def destroy
@@ -33,7 +37,7 @@ class ArticlesController < ApplicationController
     def set_article
         @article = Article.find(params[:id])
     end
-    def article_prams
+    def article_params
         params.require(:article).permit(:title, :body)
     end
 
