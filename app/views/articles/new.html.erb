@@ -1,10 +1,9 @@
-<div class="enclosure">
-    <% if @article.errors.any? %>
-        <ul>
-            <% @article.errors.full_messages.each do |error_msg| %>
-                <li><%= error_msg %></li>
-            <% end %>     
-        </ul>
-    <% end %>
-    <%= render 'articles/form' %>
-</div>
+<% if @article.errors.any? %>
+    <ul>
+        <% @article.errors.full_messages.each do |error_msg| %>
+            <li><%= error_msg %></li>
+        <% end %>     
+    </ul>
+<% end %>
+<%= render 'articles/form' %>
+

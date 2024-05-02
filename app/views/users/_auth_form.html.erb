@@ -1,27 +1,26 @@
-<div class="enclosure">
-    <% if @user.errors.any? %>
-        <ul>
-            <% @user.errors.full_messages.each do |error_msg| %>
-                <li><%= error_msg %></li>
-            <% end %>     
-        </ul>
-    <% end %>
-    <%= form_with(model: @user, local: true, data:{ turbo:false }) do |form| %>
-        <p>
-            <%= form.label :username %></br>
-            <%= form.text_field :username %>
-        </p>
-        <p>
-            <%= form.label :email%></br>
-            <%= form.email_field :email %>
-        </p>
-        <p>
-            <%= form.label :password%></br>
-            <%= form.password_field :password %>
-        </p>
-        <p>
-            <%= form.submit(@user.new_record? ? "Sign Up" : "Update Account") %>
-        </p>
-    <% end %>
-</div>
+<% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |error_msg| %>
+            <li><%= error_msg %></li>
+        <% end %>     
+    </ul>
+<% end %>
+<%= form_with(model: @user, local: true, data:{ turbo:false }) do |form| %>
+    <p>
+        <%= form.label :username %></br>
+        <%= form.text_field :username %>
+    </p>
+    <p>
+        <%= form.label :email%></br>
+        <%= form.email_field :email %>
+    </p>
+    <p>
+        <%= form.label :password%></br>
+        <%= form.password_field :password %>
+    </p>
+    <p>
+        <%= form.submit(@user.new_record? ? "Sign Up" : "Update Account") %>
+    </p>
+<% end %>
+
 

@@ -1,4 +1,15 @@
-<div class="enclosure">
-    <%= @user[:username] %> <br/>
-    <%= @user[:email] %>
-</div>
+<p><strong>username:</strong> <%= @user[:username] %></p> <br/>
+<p><strong>email:</strong> <%= @user[:email] %></p><br/>
+<h3>Articles corresponding to <%= @user[:username] %></h3>
+<ul>
+    <% @user.articles.each do |article| %>
+        <li>
+            title: <%= article.title %> <br/>
+            body: <%= article.body %> <br/>             
+            <% if article.user %>
+                created_by: <%= article.user.username %> <br/>
+            <% end %>
+        </li>
+        <br/>
+    <% end %>
+</ul>

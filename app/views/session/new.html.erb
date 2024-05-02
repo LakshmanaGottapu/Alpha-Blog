@@ -1,0 +1,15 @@
+<div class="enclosure">
+   <%= form_with(url: "/login", method: :post) do |form| %>
+        <p>
+            <%= form.label :username%>
+            <%= form.text_field :username %>
+        </p>
+        <p>
+            <%= form.label :password%>
+            <%= form.password_field :password %>
+        </p>
+        <p>
+            <%= form.submit "Login" %>
+        </p>
+   <% end %>
+</div>
